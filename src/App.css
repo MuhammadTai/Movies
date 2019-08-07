@@ -1,13 +1,53 @@
 .App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.App-title {
   text-align: center;
+  color: white;
+  font-size: 5em
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.search-title {
+  text-align: center;
+  color: white;
+  font-size: 3em
 }
 
+.nav-bg{
+  background-color: #717D7E;
+}
+.nav-title{
+  color: rgb(9, 80, 70);
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.mcu{
+  color: #ED1D24;
+  font-weight: 500;
+}
+
+.starwars{
+  color: #FFE81F;
+  font-weight: 500;
+}
+
+.matrix{
+  color:  #00FF41;
+  font-weight: 500;
+}
+
+.Red{
+  color: #ED1D24;
+}
+
+
+/*
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,6 +58,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #61dafb;
@@ -31,3 +72,4 @@
     transform: rotate(360deg);
   }
 }
+*/

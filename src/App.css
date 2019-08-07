@@ -46,6 +46,21 @@
   color: #ED1D24;
 }
 
+.cardw{
+  width:300px
+}
+.cardw1{
+  width:100%
+}
+
+.cardb{
+  background-color: black;
+}
+
+.padding{
+  padding: 3em;
+  padding-left: 5em;
+}
 
 /*
 .App-header {

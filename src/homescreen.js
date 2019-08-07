@@ -35,7 +35,7 @@ class Home extends React.Component {
                 //promise all ensures all the async functions passed are resolved and returns a single promise
                 await Promise.all(responsearray.map((response)=> fetch(response)
                             .then((response) => response.json())
-                            .then(this.defaultMovies.push(response))))
+                            .then((movies) => this.defaultMovies.push(movies))))
             
                 console.log(this.defaultMovies);
             }

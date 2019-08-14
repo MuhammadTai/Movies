@@ -27,17 +27,30 @@ class Home extends React.Component {
     }
 
     async componentDidMount(){
+        const searched = this.props.search;
+        const regexConst = /^ /;
+        if (!(searched !== '' && regexConst.test(searched) === false)){
         try {
                 const responsearray=[`http://www.omdbapi.com/?apikey=f94e8b75&i=tt0111161`,
                 `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0068646`,
                 `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0468569`,
                 `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0071562`,
-                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0167260`];
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0167260`,
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0110912`,
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0108052`,
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0050083`,
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt1375666`,
+                `http://www.omdbapi.com/?apikey=f94e8b75&i=tt0137523`];
                 //promise all ensures all the async functions passed are resolved and returns a single promise
                 await Promise.all(responsearray.map((response)=> fetch(response)
                             .then((response) => response.json())
                             .then((movies) => this.defaultMovies.push(movies))))
             
+                /*
+                const response = await Promise.all(responsearray.map((response)=> fetch(response)))
+                const responseJson = await response.json();
+                this.defaultMovies = responseJson
+                */
                 console.log(this.defaultMovies);
                 this.defaultMovies.sort(function(a, b){return b.imdbRating - a.imdbRating})
                 this.setState({movies: this.defaultMovies})
@@ -46,6 +59,7 @@ class Home extends React.Component {
             catch (error) {
                 console.error(error);
             }
+    }
     }
     
     render() {
@@ -64,23 +78,39 @@ class Home extends React.Component {
             </div>
         </li>
         );
+
+        const searchMovies = this.movies.map((movie) =>
+        <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
+            <div className="card cardw">
+                <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
+                <div className="card-body cardb">
+                    <h4 className="card-title">{movie.Title} ({movie.imdbRating})</h4>
+                    <p className="card-text">{movie.Plot}</p>
+                    <a href="/" className="btn btn-primary">More Detail</a>
+                </div>
+            </div>
+        </li>
+        );
         if (searched !== '' && regexConst.test(searched) === false){
             this.fetchData();
             return (
                 <div>
                     <p className="search-title">{searched}</p>
-                
+                    <p className="small-title">Movie Result: {this.movies.length}</p>
+                    <ul className="list-inline">
+                            {searchMovies}
+                    </ul>
                 </div>
             );
         }
         else {
             //this.defaultscreen();
             
-                console.log(this.state.movies)
+                console.log("Default Movies" + this.state.movies)
                 return (
                     <div>
                         <p className="search-title">Highest Rated Movies</p>
-                        <ul className="list-inline">
+                        <ul className="list-inline flex">
                             {listMovies}
                         </ul>
 

@@ -18,6 +18,12 @@
   font-size: 3em
 }
 
+.small-title {
+  text-align: center;
+  color: white;
+  font-size: 2em
+}
+
 .nav-bg{
   background-color: #717D7E;
 }
@@ -60,8 +66,26 @@
 .padding{
   padding: 3em;
   padding-left: 5em;
+  align-self: flex-start 
+  
+}
+.flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
+.welcome{
+  min-height: 100vh;
+  background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
+  align-content: center;
+  padding-top: 50px;
+}
+
+.center{
+  align-self: center;
+  margin-left: 38em;
+}
 /*
 .App-header {
   background-color: #282c34;

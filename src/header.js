@@ -25,7 +25,7 @@ class Header extends React.Component {
             <div>
                 <nav className="navbar sticky-top nav-bg">
                     <a className="navbar-brand nav-title" href="/">
-                        Movies in React <Logo width="50" height="50" alt=""></Logo></a>
+                        Movies <Logo width="50" height="50" alt=""></Logo></a>
                     <a className="navbar-brand mcu" href="/mcu">
                         MCU </a>
                     <a className="navbar-brand starwars" href="/sw">
@@ -38,7 +38,7 @@ class Header extends React.Component {
                         <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </nav>
-                <Route exact={true} path ="/" component={()=>home(this.state.search)}/>
+                <Route exact={true} path ="/home" component={()=>home(this.state.search)}/>
                 <Route path ="/mcu" component={mcu}/>
             
             </div>
@@ -52,8 +52,12 @@ class Header extends React.Component {
  const home = ((ssearch) =>
     (
     <div>
-        <p className="App-title">Movie Web App</p>
+        <section>
+          <p className="App-title">Movie Database</p>
+        </section>
+        <section>
         <Home search={ssearch}></Home>
+        </section>
     </div>
     ))
 

@@ -86,6 +86,9 @@
   align-self: center;
   margin-left: 38em;
 }
+.a:hover{
+  color: inherit;
+}
 /*
 .App-header {
   background-color: #282c34;

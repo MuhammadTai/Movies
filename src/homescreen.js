@@ -6,20 +6,26 @@ class Home extends React.Component {
     constructor(props) {
       super(props);
       this.fetchData = this.fetchData.bind(this);
+      
       //this.defaultscreen = this.defaultscreen.bind(this);
-      this.state = {movies: []};
+      this.state = {movies: [], searchMovies:[]};
       this.movies = [];
       this.defaultMovies= [];
 
     }
    
+
     //get the data at the start 
     async fetchData(){
         try {
             const response = await fetch(`http://www.omdbapi.com/?apikey=f94e8b75&s=${this.props.search}`);
             const responseJson = await response.json();
-            this.movies = responseJson;
-            console.log(this.movies);
+            console.log(responseJson.Response)
+            if (responseJson.Response === "True"){
+                this.setState({searchMovies: responseJson.Search}) 
+            }
+            console.log(this.state.searchMovies);
+            
         }
         catch (error) {
             console.error(error);
@@ -51,7 +57,7 @@ class Home extends React.Component {
                 const responseJson = await response.json();
                 this.defaultMovies = responseJson
                 */
-                console.log(this.defaultMovies);
+                //console.log(this.defaultMovies);
                 this.defaultMovies.sort(function(a, b){return b.imdbRating - a.imdbRating})
                 this.setState({movies: this.defaultMovies})
 
@@ -59,6 +65,9 @@ class Home extends React.Component {
             catch (error) {
                 console.error(error);
             }
+    }
+    else{
+        this.fetchData()
     }
     }
     
@@ -78,27 +87,33 @@ class Home extends React.Component {
             </div>
         </li>
         );
-
-        const searchMovies = this.movies.map((movie) =>
+        if(this.state.searchMovies.length > 0){
+        var searchedMovies = this.state.searchMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
             <div className="card cardw">
                 <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
-                    <h4 className="card-title">{movie.Title} ({movie.imdbRating})</h4>
+                    <h4 className="card-title">{movie.Title}</h4>
                     <p className="card-text">{movie.Plot}</p>
                     <a href="/" className="btn btn-primary">More Detail</a>
                 </div>
             </div>
         </li>
+        
         );
+        }
+        else{
+            searchedMovies =""
+        }
         if (searched !== '' && regexConst.test(searched) === false){
-            this.fetchData();
+            //this.fetchData();
+            //console.log(this.state.searchMovies)
             return (
                 <div>
                     <p className="search-title">{searched}</p>
-                    <p className="small-title">Movie Result: {this.movies.length}</p>
-                    <ul className="list-inline">
-                            {searchMovies}
+                    <p className="small-title">Movie Result: {this.state.searchMovies.length}</p>
+                    <ul className="list-inline flex">
+                            {searchedMovies}
                     </ul>
                 </div>
             );

@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from './logo.svg';
 import img1 from './images/star_wars_logo-svg_.png'
 import img2 from './images/2000px-MarvelLogo.png'
 import img3 from './images/matrix.jpg'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 
 class Header extends React.Component {
     constructor(props) {
@@ -29,13 +29,13 @@ class Header extends React.Component {
         <Router>
             <div>
                 <nav className="navbar sticky-top nav-bg">
-                    <a className="navbar-brand nav-title a" href="/home">
+                    <a className="navbar-brand nav-title a" href="/#/home">
                         Movies <Logo width="50" height="50" alt=""></Logo></a>
-                    <a className="navbar-brand mcu a" href="/home/mcu">
+                    <a className="navbar-brand mcu a" href="/#/home/mcu">
                         MCU </a>
-                    <a className="navbar-brand starwars a" href="home/sw">
+                    <a className="navbar-brand starwars a" href="/#/home/sw">
                         Star Wars </a>
-                    <a className="navbar-brand matrix a" href="home/matrix">
+                    <a className="navbar-brand matrix a" href="/#/home/matrix">
                         Matrix </a>
                     <form className="form-inline">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"

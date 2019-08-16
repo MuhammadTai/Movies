@@ -9,7 +9,7 @@
 .App-title {
   text-align: center;
   color: white;
-  font-size: 5em
+  font-size: 3.5em
 }
 
 .search-title {
@@ -21,7 +21,7 @@
 .small-title {
   text-align: center;
   color: white;
-  font-size: 2em
+  font-size: 1.5em
 }
 
 .nav-bg{
@@ -53,7 +53,7 @@
 }
 
 .cardw{
-  width:300px
+  
 }
 .cardw1{
   width:100%
@@ -65,9 +65,8 @@
 
 .padding{
   padding: 3em;
-  padding-left: 5em;
-  align-self: flex-start 
-  
+  align-self: flex-start;
+  flex-grow: 1;
 }
 .flex{
   display: flex;
@@ -76,15 +75,18 @@
 }
 
 .welcome{
-  min-height: 100vh;
   background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
-  align-content: center;
+  align-items: center;
   padding-top: 50px;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .center{
-  align-self: center;
-  margin-left: 38em;
+  text-align: center;
+  margin-top: 3rem;
+  
 }
 .a:hover{
   color: inherit;
@@ -115,3 +117,101 @@
   }
 }
 */
+
+@media (min-width: 768px) { 
+  .App {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .App-title {
+    text-align: center;
+    color: white;
+    font-size: 5em
+  }
+  
+  .search-title {
+    text-align: center;
+    color: white;
+    font-size: 3em
+  }
+  
+  .small-title {
+    text-align: center;
+    color: white;
+    font-size: 2em
+  }
+  
+  .nav-bg{
+    background-color: #717D7E;
+  }
+  .nav-title{
+    color: rgb(9, 80, 70);
+    font-size: 1.5em;
+    font-weight: 900;
+  }
+  
+  .mcu{
+    color: #ED1D24;
+    font-weight: 500;
+  }
+  
+  .starwars{
+    color: #FFE81F;
+    font-weight: 500;
+  }
+  
+  .matrix{
+    color:  #00FF41;
+    font-weight: 500;
+  }
+  
+  .Red{
+    color: #ED1D24;
+  }
+  
+  .cardw{
+    width:300px
+  }
+  .cardw1{
+    width:100%
+  }
+  
+  .cardb{
+    background-color: black;
+  }
+  
+  .padding{
+    padding: 3em;
+    padding-left: 5em;
+    align-self: flex-start 
+    
+  }
+  .flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .welcome{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
+    align-items: center;
+    padding-top: 50px;
+  }
+  
+  .center{
+    text-align: center;
+    margin-top: 3rem;
+    width: 15rem;
+  }
+  .a:hover{
+    color: inherit;
+  }
+ }
+

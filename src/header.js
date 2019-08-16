@@ -29,13 +29,13 @@ class Header extends React.Component {
         <Router>
             <div>
                 <nav className="navbar sticky-top nav-bg">
-                    <a className="navbar-brand nav-title a" href="/#/home">
+                    <a className="navbar-brand nav-title a" href="/Movies/#/home">
                         Movies <Logo width="50" height="50" alt=""></Logo></a>
-                    <a className="navbar-brand mcu a" href="/#/home/mcu">
+                    <a className="navbar-brand mcu a" href="/Movies/#/home/mcu">
                         MCU </a>
-                    <a className="navbar-brand starwars a" href="/#/home/sw">
+                    <a className="navbar-brand starwars a" href="/Movies/#/home/sw">
                         Star Wars </a>
-                    <a className="navbar-brand matrix a" href="/#/home/matrix">
+                    <a className="navbar-brand matrix a" href="/Movies/#/home/matrix">
                         Matrix </a>
                     <form className="form-inline">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"

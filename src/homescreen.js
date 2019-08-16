@@ -123,7 +123,8 @@ class Home extends React.Component {
             
                 console.log("Default Movies" + this.state.movies)
                 return (
-                    <div>
+                    <div className="container-fluid">
+
                         <p className="search-title">Highest Rated Movies</p>
                         <ul className="list-inline flex">
                             {listMovies}

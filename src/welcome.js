@@ -22,10 +22,10 @@ class Welcome extends React.Component {
   }
 
   const normal = (() =>(
-    <div className="welcome">
-      <p className="App-title">Movie Database</p>
+    <div className="welcome container-fluid">
+      <h1 className="App-title">Movie Database</h1>
       <p className="small-title">Browse through the highest rated movies and Search for desired movies</p>
-      <a className="btn btn-danger center" href="/#/home" role="button" >Browse Movies</a>
+      < a className="btn btn-danger center" href="/Movies/#/home" role="button" >Browse Movies</a>
     
   </div>
   ))

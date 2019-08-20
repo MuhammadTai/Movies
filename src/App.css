@@ -7,15 +7,20 @@
 }
 
 .App-title {
+  align-self: center;
   text-align: center;
-  color: white;
   font-size: 3.5em
 }
 
+.rating{
+  color: gold
+}
+
 .search-title {
-  text-align: center;
+  padding: 0px;
   color: white;
-  font-size: 3em
+  font-size: 3em;
+  text-align: center;
 }
 
 .small-title {
@@ -29,7 +34,7 @@
 }
 .nav-title{
   color: rgb(9, 80, 70);
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 900;
 }
 
@@ -53,6 +58,7 @@
 }
 
 .cardw{
+  cursor: pointer;
   
 }
 .cardw1{
@@ -64,18 +70,24 @@
 }
 
 .padding{
-  padding: 3em;
+  padding-top: 6em;
   align-self: flex-start;
-  flex-grow: 1;
+  margin-left: .5rem;
+}
+.dropdown-padding{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .flex{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .welcome{
-  background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
+  background: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
   align-items: center;
   padding-top: 50px;
   display: flex;
@@ -86,57 +98,68 @@
 .center{
   text-align: center;
   margin-top: 3rem;
-  
 }
-.a:hover{
+a.b:hover{
   color: inherit;
 }
-/*
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+a.a{
+  text-decoration:none!important;
   color: white;
 }
-
-
-.App-link {
-  color: #61dafb;
+a.a:hover{
+  text-decoration:none!important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardw:hover{
+  width: 300px;
+  height: 350px;
 }
-*/
 
+.search-body{
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.Footer{
+  display: flex;
+  min-height: 3em;
+  background-color: #323741;
+}
+
+.body{
+  min-height: 100vh;
+}
+
+.footer-text{
+  align-self: center;
+  margin-left: 1em;
+}
+
+.star{
+  vertical-align: text-bottom;
+}
+
+.text-size-footer{
+  font-size: 12px;
+  margin-bottom: 0em;
+}
+
+.grey{
+  color: lightslategray;
+}
 @media (min-width: 768px) { 
-  .App {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: white;
-  }
   
   .App-title {
+    align-self: center;
     text-align: center;
-    color: white;
     font-size: 5em
   }
   
   .search-title {
-    text-align: center;
+    padding: 0px;
     color: white;
-    font-size: 3em
+    font-size: 3em;
   }
   
   .small-title {
@@ -145,64 +168,23 @@
     font-size: 2em
   }
   
-  .nav-bg{
-    background-color: #717D7E;
-  }
-  .nav-title{
-    color: rgb(9, 80, 70);
-    font-size: 1.5em;
-    font-weight: 900;
-  }
-  
-  .mcu{
-    color: #ED1D24;
-    font-weight: 500;
-  }
-  
-  .starwars{
-    color: #FFE81F;
-    font-weight: 500;
-  }
-  
-  .matrix{
-    color:  #00FF41;
-    font-weight: 500;
-  }
-  
-  .Red{
-    color: #ED1D24;
+  .dropdown-padding{
+    flex-direction: row;
+    padding-left: 6em;
+    padding-right: 0em;
   }
   
   .cardw{
-    width:300px
-  }
-  .cardw1{
-    width:100%
-  }
-  
-  .cardb{
-    background-color: black;
+    width:250px;
+    transition: width 2s, height 2s;
+   
   }
   
   .padding{
-    padding: 3em;
-    padding-left: 5em;
-    align-self: flex-start 
+    padding-top: 6em;
     
-  }
-  .flex{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .welcome{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ), url(".\images\wp1945898-movie-posters-wallpapers.jpg");
-    align-items: center;
-    padding-top: 50px;
+    align-self: flex-start;
+    
   }
   
   .center{
@@ -210,8 +192,6 @@
     margin-top: 3rem;
     width: 15rem;
   }
-  .a:hover{
-    color: inherit;
-  }
+
  }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import Header from './header';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
@@ -22,10 +22,10 @@ class Welcome extends React.Component {
   }
 
   const normal = (() =>(
-    <div className="welcome container-fluid">
+    <div className="d-flex flex-column align-items-center welcome">
       <h1 className="App-title">Movie Database</h1>
       <p className="small-title">Browse through the highest rated movies and Search for desired movies</p>
-      < a className="btn btn-danger center" href="/Movies/#/home" role="button" >Browse Movies</a>
+      <a className="btn btn-danger center" href="/Movies/#/home" role="button" >Browse Movies</a>
     
   </div>
   ))

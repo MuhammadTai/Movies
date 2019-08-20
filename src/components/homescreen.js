@@ -1,19 +1,25 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
+import star from '../images/star.png'
 
 
 class Home extends React.Component {
     constructor(props) {
       super(props);
       this.fetchData = this.fetchData.bind(this);
-      
+      this.moviedetail = this.moviedetail.bind(this);
       //this.defaultscreen = this.defaultscreen.bind(this);
-      this.state = {movies: [], searchMovies:[]};
+      this.state = {movies: [], searchMovies:[], poster: "", title: "", plot:"", genre:"", director:"", actor:""};
       this.movies = [];
       this.defaultMovies= [];
       this.key = process.env.REACT_APP_API_KEY;
     }
    
+
+    moviedetail(poster, title, plot, genre, director, actor){
+        console.log("123")
+        this.setState({poster: poster, title: title, plot: plot, genre: genre, director: director, actor: actor})
+    }
 
     //get the data at the start 
     async fetchData(){
@@ -70,32 +76,34 @@ class Home extends React.Component {
         this.fetchData()
     }
     }
-    
+    /*
+                        <p className="card-text">{movie.Plot}</p>
+                    <a href="/" className="btn btn-primary">More Detail</a>
+    */
     render() {
 
         const searched = this.props.search;
         const regexConst = /^ /;
         const listMovies = this.defaultMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
-            <div className="card cardw">
+            <a data-toggle="modal" data-val={movie.Plot} onClick={() => this.moviedetail(movie.Poster, movie.Title, movie.Plot, movie.Genre, movie.Director, movie.Actors)} href="#exampleModalCenter" className="a" ><div className="card cardw cardb">
                 <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
-                    <h4 className="card-title">{movie.Title} ({movie.imdbRating})</h4>
-                    <p className="card-text">{movie.Plot}</p>
-                    <a href="/" className="btn btn-primary">More Detail</a>
+                    <h4 className="card-title">{movie.Title}</h4>
                 </div>
-            </div>
+                <div className="card-footer text-muted cardb">
+                    <span className="rating"><img src={star} className="star" height="20px" width="20px" alt="Rating"></img> {movie.imdbRating}</span>
+                </div>
+            </div></a>
         </li>
         );
         if(this.state.searchMovies.length > 0){
         var searchedMovies = this.state.searchMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
-            <div className="card cardw">
+            <div className="card cardw cardb">
                 <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.Title}</h4>
-                    <p className="card-text">{movie.Plot}</p>
-                    <a href="/" className="btn btn-primary">More Detail</a>
                 </div>
             </div>
         </li>
@@ -112,7 +120,7 @@ class Home extends React.Component {
                 <div>
                     <p className="search-title">{searched}</p>
                     <p className="small-title">Movie Result: {this.state.searchMovies.length}</p>
-                    <ul className="list-inline flex">
+                    <ul className="list-inline flex search-body">
                             {searchedMovies}
                     </ul>
                 </div>
@@ -124,8 +132,43 @@ class Home extends React.Component {
                 console.log("Default Movies" + this.state.movies)
                 return (
                     <div className="container-fluid">
+                        <div className="row">
+                            <div className="dropdown dropdown-padding col-md-3">
+                                <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </button>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a className="dropdown-item" >Latest Movies</a>
+                                    <a className="dropdown-item" >Highest-Grossing Movies</a>
+                                    <a className="dropdown-item" >Saved Movies</a>
+                                </div>
+                            </div>
+                            <p className="search-title col-md-6">Highest Rated Movies</p>
+                        </div>
+                        
+                        <div className="modal fade" id="exampleModalCenter"  tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div className="modal-dialog modal-dialog-centered" role="document">
+                                <div className="modal-content cardb">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalCenterTitle">{this.state.title}</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <p className="card-text">{this.state.plot}</p>
+                                    <p className="text-size-footer">Genre: <span className="grey">{this.state.genre}</span></p>
+                                    <p className="text-size-footer">Director: <span className="grey">{this.state.director}</span></p>
+                                    <p className="text-size-footer">Cast: <span className="grey">{this.state.actor}</span></p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" className="btn btn-primary">Favourite Movie</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <p className="search-title">Highest Rated Movies</p>
                         <ul className="list-inline flex">
                             {listMovies}
                         </ul>

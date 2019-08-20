@@ -120,7 +120,7 @@ class Home extends React.Component {
                 <div>
                     <p className="search-title">{searched}</p>
                     <p className="small-title">Movie Result: {this.state.searchMovies.length}</p>
-                    <ul className="list-inline flex search-body">
+                    <ul className="flex container list-inline search-body">
                             {searchedMovies}
                     </ul>
                 </div>
@@ -169,7 +169,7 @@ class Home extends React.Component {
                             </div>
                         </div>
 
-                        <ul className="list-inline flex">
+                        <ul className="list-inline flex container">
                             {listMovies}
                         </ul>
 

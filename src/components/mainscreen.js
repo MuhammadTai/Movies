@@ -1,14 +1,15 @@
 import React from 'react';
 import '../App.css';
-import Home from './homescreen';
-import Mcu from './mcuscreen';
+import RatingScreen from './ratingscreen';
+import WhatsOn from './whatsonscreen';
 import { ReactComponent as Logo } from '../logo.svg';
 import img1 from '../images/star_wars_logo-svg_.png'
 import img2 from '../images/2000px-MarvelLogo.png'
 import img3 from '../images/matrix.jpg'
 import {HashRouter as Router, Route} from 'react-router-dom';
 
-class Header extends React.Component {
+
+class Main extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
@@ -29,25 +30,25 @@ class Header extends React.Component {
         <Router>
         
               <nav className="navbar sticky-top nav-bg">
-                  <a className="navbar-brand nav-title b" href="/Movies/#/home">
+                  <a className="navbar-brand nav-title" href="/Movies/#/">
                       Movies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
-                  <a className="navbar-brand mcu b" href="/Movies/#/home/mcu">
-                      MCU </a>
-                  <a className="navbar-brand starwars b" href="/Movies/#/home/sw">
-                      Star Wars </a>
-                  <a className="navbar-brand matrix b" href="/Movies/#/home/matrix">
-                      Matrix </a>
-                  <form className="form-inline">
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/whatson">
+                      What's On </a>
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/rating">
+                      Highest Rated Movies </a>
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/savedmovies">
+                      Saved Movies </a>
+                  <form className="form-inline search-bar">
                       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                           value={this.state.search} onChange={this.handleChange}/>
-                      <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" type="submit">Search</button>
                   </form>
               </nav>
          
 
             <section className="body">
-              <Route exact={true} path="/home" component={()=>home(this.state.search)}/>
-              <Route exact={true} path ="/home/mcu" component={mcu}/>
+              <Route exact={true} path="/home/rating" component={()=>ratingscreen(this.state.search)}/>
+              <Route exact={true} path ="/home/whatson" component={whatson}/>
 
             </section>
     
@@ -61,22 +62,27 @@ class Header extends React.Component {
     }
   }
 
- const home = ((ssearch) =>
+ const ratingscreen = ((ssearch) =>
     (
     <div>
         <section>
           <p className="App-title">Movie Database</p>
         </section>
         <section>
-        <Home search={ssearch}></Home>
+        <RatingScreen search={ssearch}></RatingScreen>
         </section>
     </div>
     ))
 
-  const mcu = (() =>(
+  const whatson = (() =>(
     <div>
-        <Mcu></Mcu>
+        <WhatsOn></WhatsOn>
     </div>
   ))
 
-  export default Header;
+  export default Main;
+
+  /*<Route exact={true} path="/home" component={()=>ratingscreen(this.state.search)}/>*/ //only shows this when it is exactly /home
+                                                                                          //other pages will use /home from welcome screen showing main header only
+
+  

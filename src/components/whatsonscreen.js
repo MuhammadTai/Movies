@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-class Mcu extends React.Component {
+class WhatsOn extends React.Component {
     constructor(props) {
       super(props);
       //this.handleChange = this.handleChange.bind(this);
@@ -20,7 +20,7 @@ class Mcu extends React.Component {
       return (
       
             <div>
-                <p className="App-title Red">Marvel Cinematic Universe</p>
+                <p className="App-title Red">What's On</p>
             </div>
     
    
@@ -29,4 +29,4 @@ class Mcu extends React.Component {
     }
   }
 
-  export default Mcu;
+  export default WhatsOn;

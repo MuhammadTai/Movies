@@ -3,23 +3,42 @@ import '../App.css';
 import star from '../images/star.png'
 
 
-class Home extends React.Component {
+class RatingScreen extends React.Component {
     constructor(props) {
       super(props);
       this.fetchData = this.fetchData.bind(this);
+      //this.fetchSave = this.fetchSave.bind(this);
       this.moviedetail = this.moviedetail.bind(this);
+      //this.openSavedPage = this.openSavedPage.bind(this);
+      //this.closeSavedPage = this.closeSavedPage.bind(this);
       //this.defaultscreen = this.defaultscreen.bind(this);
-      this.state = {movies: [], searchMovies:[], poster: "", title: "", plot:"", genre:"", director:"", actor:""};
+      this.state = {movies: [], searchMovies:[], poster: "", title: "", plot:"", genre:"", director:"", actor:"",
+                    released: "", runtime: "", savedPage: false};
       this.movies = [];
       this.defaultMovies= [];
       this.key = process.env.REACT_APP_API_KEY;
     }
    
 
-    moviedetail(poster, title, plot, genre, director, actor){
-        console.log("123")
-        this.setState({poster: poster, title: title, plot: plot, genre: genre, director: director, actor: actor})
+    /*
+    openSavedPage(e){
+        e.preventDefault();
+        console.log("Saved")
+        this.setState({savedPage: true})
     }
+
+    closeSavedPage(e){
+        e.preventDefault();
+        console.log("Closed")
+        this.setState({savedPage: false})
+    }
+    */
+    moviedetail(poster, title, plot, genre, director, actor, released, runtime){
+
+        this.setState({poster: poster, title: title, plot: plot, genre: genre, director: director, actor: actor,
+                        released: released, runtime: runtime})
+    }
+
 
     //get the data at the start 
     async fetchData(){
@@ -72,21 +91,18 @@ class Home extends React.Component {
                 console.error(error);
             }
     }
-    else{
+    else {
         this.fetchData()
     }
     }
-    /*
-                        <p className="card-text">{movie.Plot}</p>
-                    <a href="/" className="btn btn-primary">More Detail</a>
-    */
-    render() {
 
+    render() {
+        
         const searched = this.props.search;
         const regexConst = /^ /;
         const listMovies = this.defaultMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
-            <a data-toggle="modal" data-val={movie.Plot} onClick={() => this.moviedetail(movie.Poster, movie.Title, movie.Plot, movie.Genre, movie.Director, movie.Actors)} href="#exampleModalCenter" className="a" ><div className="card cardw cardb">
+            <a data-toggle="modal" data-val={movie.Plot} onClick={() => this.moviedetail(movie.Poster, movie.Title, movie.Plot, movie.Genre, movie.Director, movie.Actors, movie.Released, movie.Runtime)} href="#exampleModalCenter" className="a" ><div className="card cardw cardb">
                 <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.Title}</h4>
@@ -100,12 +116,12 @@ class Home extends React.Component {
         if(this.state.searchMovies.length > 0){
         var searchedMovies = this.state.searchMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
-            <div className="card cardw cardb">
+            <a><div className="card cardw cardb">
                 <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.Title}</h4>
                 </div>
-            </div>
+            </div></a>
         </li>
         
         );
@@ -114,56 +130,48 @@ class Home extends React.Component {
             searchedMovies =""
         }
         if (searched !== '' && regexConst.test(searched) === false){
-            //this.fetchData();
+         
             //console.log(this.state.searchMovies)
             return (
                 <div>
-                    <p className="search-title">{searched}</p>
+                    <p className="search-title display-4">{searched}</p>
                     <p className="small-title">Movie Result: {this.state.searchMovies.length}</p>
-                    <ul className="flex container list-inline search-body">
+                    <ul className="flex container list-inline ">
                             {searchedMovies}
                     </ul>
                 </div>
             );
         }
-        else {
-            //this.defaultscreen();
+        else if (!(searched !== '' && regexConst.test(searched) === false )){
+            
             
                 console.log("Default Movies" + this.state.movies)
                 return (
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="dropdown dropdown-padding col-md-3">
-                                <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories
-                                </button>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" >Latest Movies</a>
-                                    <a className="dropdown-item" >Highest-Grossing Movies</a>
-                                    <a className="dropdown-item" >Saved Movies</a>
-                                </div>
-                            </div>
-                            <p className="search-title col-md-6">Highest Rated Movies</p>
+                            <p className="search-title col-md display-4">Highest Rated Movies</p>
                         </div>
                         
                         <div className="modal fade" id="exampleModalCenter"  tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div className="modal-dialog modal-dialog-centered" role="document">
                                 <div className="modal-content cardb">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalCenterTitle">{this.state.title}</h5>
+                                    <h5 className="modal-title upper" id="exampleModalCenterTitle">{this.state.title}</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div className="modal-body">
                                     <p className="card-text">{this.state.plot}</p>
+                                    <p className="text-size-footer">Released: <span className="grey">{this.state.released}</span></p>
+                                    <p className="text-size-footer">Runtime: <span className="grey">{this.state.runtime}</span></p>
                                     <p className="text-size-footer">Genre: <span className="grey">{this.state.genre}</span></p>
                                     <p className="text-size-footer">Director: <span className="grey">{this.state.director}</span></p>
                                     <p className="text-size-footer">Cast: <span className="grey">{this.state.actor}</span></p>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Favourite Movie</button>
+                                    <button type="button" className="btn btn-danger">Favourite Movie</button>
                                 </div>
                                 </div>
                             </div>
@@ -177,8 +185,42 @@ class Home extends React.Component {
                 );
             
         }
+        /*
+        else if (!(searched !== '' && regexConst.test(searched) === false && this.state.savedPage)){
+            return(                    <div className="container-fluid">
+            <div className="row">
+                <div className="dropdown dropdown-padding col-md-3">
+                    <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href={this.closeSavedPage} className="dropdown-item" >Highest Rated Movies</a>
+                        <a href={this.openSavedPage} className="dropdown-item" >Saved Movies</a>
+                        <a href={this.closeSavedPage} className="dropdown-item" >Latest Movies</a>
+                    </div>
+                </div>
+                <p className="search-title col-md-6 display-4">Saved Movies</p>
+                </div>
+            </div>)    
+            
+        }
+        */
     }
   }
 
 
-  export default Home;
+  export default RatingScreen;
+
+
+  /*
+                              <div className="dropdown dropdown-padding col-md-3">
+                                <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </button>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a href="#" onClick={(e) => this.closeSavedPage(e)} className="dropdown-item" >Highest Rated Movies</a>
+                                    <a href="#" onClick={(e) => this.openSavedPage(e)} className="dropdown-item" >Saved Movies</a>
+                                    <a href="#" onClick={(e) => this.closeSavedPage(e)} className="dropdown-item" >Latest Movies</a>
+                                </div>
+                            </div>
+    */

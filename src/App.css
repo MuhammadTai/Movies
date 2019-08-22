@@ -233,10 +233,14 @@ a.a:hover{
   }
   .navbar-small{
     display: grid;
+    opacity: 0.9;
   }
 
   .navbar-collapse{
     display: flex;
+    position: fixed;
+    top: inherit;
+    opacity: 0.8;
   }
 
   .search-bar{
@@ -246,6 +250,11 @@ a.a:hover{
 
   .search-btn{
     display: none;
+  }
+  
+  .cardw:hover{
+    width: 250px;
+    height: auto;
   }
 
  }

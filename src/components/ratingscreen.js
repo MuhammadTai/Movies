@@ -43,7 +43,7 @@ class RatingScreen extends React.Component {
     //get the data at the start 
     async fetchData(){
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=${this.key}&s=${this.props.search}`);
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${this.key}&s=${this.props.search}`);
             const responseJson = await response.json();
             console.log(responseJson.Response)
             if (responseJson.Response === "True"){
@@ -62,16 +62,16 @@ class RatingScreen extends React.Component {
         const regexConst = /^ /;
         if (!(searched !== '' && regexConst.test(searched) === false)){
         try {
-                const responsearray=[`http://www.omdbapi.com/?apikey=${this.key}&i=tt0111161`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0068646`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0468569`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0071562`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0167260`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0110912`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0108052`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0050083`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt1375666`,
-                `http://www.omdbapi.com/?apikey=${this.key}&i=tt0137523`];
+                const responsearray=[`https://www.omdbapi.com/?apikey=${this.key}&i=tt0111161`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0068646`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0468569`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0071562`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0167260`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0110912`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0108052`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0050083`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt1375666`,
+                `https://www.omdbapi.com/?apikey=${this.key}&i=tt0137523`];
                 //promise all ensures all the async functions passed are resolved and returns a single promise
                 await Promise.all(responsearray.map((response)=> fetch(response)
                             .then((response) => response.json())

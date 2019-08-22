@@ -172,6 +172,14 @@ a.a:hover{
   font-size: 1.3em;
   text-align: center;
 }
+
+.navbar-collapse{
+  display: none;
+}
+
+.row{
+  justify-content: center
+}
 @media (min-width: 768px) { 
   
   .App-title {
@@ -220,8 +228,15 @@ a.a:hover{
  }
 
  @media (max-width: 1000px){
-  .navbar{
+  .navbar-normal{
+    display: none
+  }
+  .navbar-small{
     display: grid;
+  }
+
+  .navbar-collapse{
+    display: flex;
   }
 
   .search-bar{

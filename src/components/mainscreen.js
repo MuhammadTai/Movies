@@ -29,7 +29,7 @@ class Main extends React.Component {
       return (
         <Router>
         
-              <nav className="navbar sticky-top nav-bg">
+              <nav className="navbar sticky-top nav-bg navbar-normal">
                   <a className="navbar-brand nav-title" href="/Movies/#/">
                       Movies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/whatson">
@@ -44,7 +44,28 @@ class Main extends React.Component {
                       <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" type="submit">Search</button>
                   </form>
               </nav>
-         
+            
+              <nav className="navbar navbar-small sticky-top nav-bg collapse" id="navbarToggleExternalContent">
+                  <a className="navbar-brand nav-title" href="/Movies/#/">
+                      Movies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/whatson">
+                      What's On </a>
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/rating">
+                      Highest Rated Movies </a>
+                  <a className="navbar-brand nav-text b" href="/Movies/#/home/savedmovies">
+                      Saved Movies </a>
+                  <form className="form-inline search-bar">
+                      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                          value={this.state.search} onChange={this.handleChange}/>
+                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" type="submit">Search</button>
+                  </form>
+              </nav>
+
+              <nav className="navbar sticky-top nav-bg navbar-dark navbar-collapse">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+              </nav>
 
             <section className="body">
               <Route exact={true} path="/home/rating" component={()=>ratingscreen(this.state.search)}/>

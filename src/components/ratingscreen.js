@@ -77,12 +77,7 @@ class RatingScreen extends React.Component {
                             .then((response) => response.json())
                             .then((movies) => this.defaultMovies.push(movies))))
             
-                /*
-                const response = await Promise.all(responsearray.map((response)=> fetch(response)))
-                const responseJson = await response.json();
-                this.defaultMovies = responseJson
-                */
-                //console.log(this.defaultMovies);
+
                 this.defaultMovies.sort(function(a, b){return b.imdbRating - a.imdbRating})
                 this.setState({movies: this.defaultMovies})
 
@@ -185,42 +180,8 @@ class RatingScreen extends React.Component {
                 );
             
         }
-        /*
-        else if (!(searched !== '' && regexConst.test(searched) === false && this.state.savedPage)){
-            return(                    <div className="container-fluid">
-            <div className="row">
-                <div className="dropdown dropdown-padding col-md-3">
-                    <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a href={this.closeSavedPage} className="dropdown-item" >Highest Rated Movies</a>
-                        <a href={this.openSavedPage} className="dropdown-item" >Saved Movies</a>
-                        <a href={this.closeSavedPage} className="dropdown-item" >Latest Movies</a>
-                    </div>
-                </div>
-                <p className="search-title col-md-6 display-4">Saved Movies</p>
-                </div>
-            </div>)    
-            
-        }
-        */
     }
   }
 
 
   export default RatingScreen;
-
-
-  /*
-                              <div className="dropdown dropdown-padding col-md-3">
-                                <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories
-                                </button>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a href="#" onClick={(e) => this.closeSavedPage(e)} className="dropdown-item" >Highest Rated Movies</a>
-                                    <a href="#" onClick={(e) => this.openSavedPage(e)} className="dropdown-item" >Saved Movies</a>
-                                    <a href="#" onClick={(e) => this.closeSavedPage(e)} className="dropdown-item" >Latest Movies</a>
-                                </div>
-                            </div>
-    */

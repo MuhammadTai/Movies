@@ -3,9 +3,6 @@ import '../App.css';
 import RatingScreen from './ratingscreen';
 import WhatsOn from './whatsonscreen';
 import { ReactComponent as Logo } from '../logo.svg';
-import img1 from '../images/star_wars_logo-svg_.png'
-import img2 from '../images/2000px-MarvelLogo.png'
-import img3 from '../images/matrix.jpg'
 import {HashRouter as Router, Route} from 'react-router-dom';
 
 
@@ -21,9 +18,7 @@ class Main extends React.Component {
       
     }
 
-    //<img width="90" height="70" src={img2} className="img-fluid" alt="MCU"></img>
-    //<img width="75" height="70" src={img1} className="img-fluid" alt="Star Wars"></img>
-    //<img width="55" height="70" src={img3} className="img-fluid" alt="Matrix"></img>
+
     render() {
     
       return (
@@ -70,7 +65,6 @@ class Main extends React.Component {
             <section className="body">
               <Route exact={true} path="/home/rating" component={()=>ratingscreen(this.state.search)}/>
               <Route exact={true} path ="/home/whatson" component={whatson}/>
-
             </section>
     
             <footer className="Footer">

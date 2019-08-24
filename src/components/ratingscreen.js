@@ -98,7 +98,7 @@ class RatingScreen extends React.Component {
         const listMovies = this.defaultMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
             <a data-toggle="modal" data-val={movie.Plot} onClick={() => this.moviedetail(movie.Poster, movie.Title, movie.Plot, movie.Genre, movie.Director, movie.Actors, movie.Released, movie.Runtime)} href="#exampleModalCenter" className="a" ><div className="card cardw cardb">
-                <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
+                <img className="card-img-top card-img" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.Title}</h4>
                 </div>
@@ -112,7 +112,7 @@ class RatingScreen extends React.Component {
         var searchedMovies = this.state.searchMovies.map((movie) =>
         <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
             <a><div className="card cardw cardb">
-                <img className="card-img-top cardw1" src={movie.Poster} alt="Movie"/>
+                <img className="card-img-top cardw-img" src={movie.Poster} alt="Movie"/>
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.Title}</h4>
                 </div>

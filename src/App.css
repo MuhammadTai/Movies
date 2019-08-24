@@ -73,9 +73,10 @@
 
 .cardw{
   cursor: pointer;
+  width: 300px;
   
 }
-.cardw1{
+.cardw-img{
   width:100%
 }
 
@@ -125,17 +126,13 @@ a.a:hover{
   text-decoration:none!important;
 }
 
-.cardw:hover{
-  width: 295px;
-  height: 345px;
-}
-
 .search-body{
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
 
 .Footer{
+  margin-top: 5em;
   display: flex;
   min-height: 3em;
   background-color: #1C2833;
@@ -226,6 +223,11 @@ a.a:hover{
     width: 15rem;
   }
 
+  .cardw:hover{
+    width: 295px;
+    height: 345px;
+  }
+
  }
 
  @media (max-width: 1000px){
@@ -251,10 +253,6 @@ a.a:hover{
 
   .search-btn{
     display: none;
-  }
-  
-  .cardw:hover{
-
   }
 
  }

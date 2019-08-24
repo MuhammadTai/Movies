@@ -36,7 +36,7 @@ class Main extends React.Component {
                   <form className="form-inline search-bar">
                       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                           value={this.state.search} onChange={this.handleChange}/>
-                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" type="submit">Search</button>
+                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn">Search</button>
                   </form>
               </nav>
             
@@ -52,7 +52,7 @@ class Main extends React.Component {
                   <form className="form-inline search-bar">
                       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                           value={this.state.search} onChange={this.handleChange}/>
-                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" type="submit">Search</button>
+                      <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" >Search</button>
                   </form>
               </nav>
 
@@ -64,7 +64,7 @@ class Main extends React.Component {
 
             <section className="body">
               <Route exact={true} path="/home/rating" component={()=>ratingscreen(this.state.search)}/>
-              <Route exact={true} path ="/home/whatson" component={whatson}/>
+              <Route exact={true} path ="/home/whatson" component={()=>whatson(this.state.search)}/>
             </section>
     
             <footer className="Footer">
@@ -80,18 +80,13 @@ class Main extends React.Component {
  const ratingscreen = ((ssearch) =>
     (
     <div>
-        <section>
-          <p className="App-title">Movie Database</p>
-        </section>
-        <section>
         <RatingScreen search={ssearch}></RatingScreen>
-        </section>
     </div>
     ))
 
-  const whatson = (() =>(
+  const whatson = ((ssearch) =>(
     <div>
-        <WhatsOn></WhatsOn>
+        <WhatsOn search={ssearch}></WhatsOn>
     </div>
   ))
 

@@ -178,6 +178,31 @@ a.a:hover{
 .row{
   justify-content: center
 }
+
+.rating-header{
+  width: 100%;
+  height: 30em;
+  background: url("./images/myke-simon-atsUqIm3wxo-unsplash.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
+.whatson-header{
+  width: 100%;
+  height: 30em;
+  background: url("./images/erik-witsoe-GF8VvBgcJ4o-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.saved-header{
+  width: 100%;
+  height: 30em;
+  background: url("./images/myke-simon-atsUqIm3wxo-unsplash.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
 @media (min-width: 768px) { 
   
   .App-title {

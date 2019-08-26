@@ -17,24 +17,21 @@ class Main extends React.Component {
       this.setState({search: event.target.value});
       
     }
-
-
-    render() {
     
+    render() {
       return (
         <Router>
-        
               <nav className="navbar sticky-top nav-bg navbar-normal">
                   <a className="navbar-brand nav-title" href="/Movies/#/">
-                      Movies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
-                  <a className="navbar-brand nav-text b" href="/Movies/#/home/whatson">
+                      TheMovies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
+                  <a className="navbar-brand nav-text b"  href="/Movies/#/home/whatson">
                       What's On </a>
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/rating">
                       Highest Rated Movies </a>
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/savedmovies">
                       Saved Movies </a>
                   <form className="form-inline search-bar">
-                      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                      <input className="form-control mr-sm-2 nav-bg" type="search" placeholder="Search" aria-label="Search"
                           value={this.state.search} onChange={this.handleChange}/>
                       <button className="btn btn-outline-danger my-2 my-sm-0 search-btn">Search</button>
                   </form>
@@ -42,7 +39,7 @@ class Main extends React.Component {
             
               <nav className="navbar navbar-small sticky-top nav-bg collapse" id="navbarToggleExternalContent">
                   <a className="navbar-brand nav-title" href="/Movies/#/">
-                      Movies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
+                      TheMovies <Logo style={{verticalAlign: "bottom"}} width="40" height="30" alt=""></Logo></a>
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/whatson">
                       What's On </a>
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/rating">
@@ -50,7 +47,7 @@ class Main extends React.Component {
                   <a className="navbar-brand nav-text b" href="/Movies/#/home/savedmovies">
                       Saved Movies </a>
                   <form className="form-inline search-bar">
-                      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                      <input className="form-control mr-sm-2 nav-bg" type="search" placeholder="Search" aria-label="Search"
                           value={this.state.search} onChange={this.handleChange}/>
                       <button className="btn btn-outline-danger my-2 my-sm-0 search-btn" >Search</button>
                   </form>
@@ -68,7 +65,7 @@ class Main extends React.Component {
             </section>
     
             <footer className="Footer">
-              <div className="footer-text">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+              <div className="footer-text">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC 3.0 BY</a></div>
             </footer>
   
         </Router>
@@ -79,15 +76,11 @@ class Main extends React.Component {
 
  const ratingscreen = ((ssearch) =>
     (
-    <div>
-        <RatingScreen search={ssearch}></RatingScreen>
-    </div>
+    <RatingScreen search={ssearch}></RatingScreen>
     ))
 
   const whatson = ((ssearch) =>(
-    <div>
-        <WhatsOn search={ssearch}></WhatsOn>
-    </div>
+    <WhatsOn search={ssearch}></WhatsOn>
   ))
 
   export default Main;

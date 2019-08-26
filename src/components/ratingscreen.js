@@ -1,16 +1,15 @@
 import React from 'react';
 import '../App.css';
 import star from '../images/star.png'
+import MovieOverlay from './movieoverlay'
 
 class RatingScreen extends React.Component {
     constructor(props) {
       super(props);
       this.fetchData = this.fetchData.bind(this);
-      //this.fetchSave = this.fetchSave.bind(this);
       this.moviedetail = this.moviedetail.bind(this);
       //this.openSavedPage = this.openSavedPage.bind(this);
       //this.closeSavedPage = this.closeSavedPage.bind(this);
-      //this.defaultscreen = this.defaultscreen.bind(this);
       this.state = {movies: [], searchMovies:[], poster: "", title: "", plot:"", genre:"", director:"", actor:"",
                     released: "", runtime: "", savedPage: false};
       this.movies = [];
@@ -107,16 +106,18 @@ class RatingScreen extends React.Component {
             </div></a>
         </li>
         );
+
         if(this.state.searchMovies.length > 0){
-        var searchedMovies = this.state.searchMovies.map((movie) =>
-        <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
-            <a><div className="card cardw cardb">
-                <img className="card-img-top cardw-img" src={movie.Poster} alt="Movie"/>
-                <div className="card-body cardb">
-                    <h4 className="card-title">{movie.Title}</h4>
-                </div>
-            </div></a>
-        </li>
+
+            var searchedMovies = this.state.searchMovies.map((movie) =>
+            <li className="list-inline-item .justify-content-*-center padding" key={movie.imdbID}>
+                <a><div className="card cardw cardb">
+                    <img className="card-img-top cardw-img" src={movie.Poster} alt="Movie"/>
+                    <div className="card-body cardb">
+                        <h4 className="card-title">{movie.Title}</h4>
+                    </div>
+                </div></a>
+            </li>
         );}
         else{
             searchedMovies =""
@@ -141,45 +142,26 @@ class RatingScreen extends React.Component {
             
                 console.log("Default Movies" + this.state.movies)
                 return (
-                    
-                    <div className="container-fluid">
-                        <header>
-                            <div className="rating-header"/>
+                <div>
+                    <div className="rating-header"/>
+                        <div className="container-fluid">
+                            <div>
 
-                            <p className="App-title">Movie Database</p>
-                            <div className="row">
-                                <p className="search-title col-md display-4">Highest Rated Movies</p>
-                            </div>
-                        </header>
-                        <div className="modal fade" id="exampleModalCenter"  tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div className="modal-dialog modal-dialog-centered" role="document">
-                                <div className="modal-content cardb">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title upper" id="exampleModalCenterTitle">{this.state.title}</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <p className="card-text">{this.state.plot}</p>
-                                        <p className="text-size-footer">Released: <span className="grey">{this.state.released}</span></p>
-                                        <p className="text-size-footer">Runtime: <span className="grey">{this.state.runtime}</span></p>
-                                        <p className="text-size-footer">Genre: <span className="grey">{this.state.genre}</span></p>
-                                        <p className="text-size-footer">Director: <span className="grey">{this.state.director}</span></p>
-                                        <p className="text-size-footer">Cast: <span className="grey">{this.state.actor}</span></p>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-danger">Favourite Movie</button>
-                                    </div>
+                                <div className="row">
+                                    <p className="search-title col-md display-4">Highest Rated Movies</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <ul className="list-inline flex container">
-                            {listMovies}
-                        </ul>
+                            <div className="modal fade" id="exampleModalCenter"  tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <MovieOverlay title={this.state.title} plot={this.state.plot} released={this.state.released} runtime={this.state.runtime}
+                                                genre={this.state.genre} director={this.state.director} actor={this.state.actor}/>
+                            </div>
 
+                            <ul className="list-inline flex container">
+                                {listMovies}
+                            </ul>
+
+                            </div>
                     </div>
                 );
             

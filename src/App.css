@@ -7,7 +7,7 @@
 }
 
 .primary-color{
-  color: #C0392B
+  color: 	#fb2e01
 }
 
 .secoundary-color{
@@ -20,9 +20,11 @@
 
 .App-title {
   align-self: center;
+  font-family: 'Righteous', cursive;
   text-align: center;
   font-size: 3.5em;
   font-weight: 400;
+  color: #fb2e01;
 }
 
 .rating{
@@ -34,12 +36,16 @@
   color: white;
   font-size: 3em;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 1.5em;
 }
 
 .small-title {
   text-align: center;
   color: white;
-  font-size: 1.5em
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
 }
 
 .nav-bg{
@@ -47,11 +53,11 @@
   /*34495E*/
 }
 .nav-title{
-  color: #C0392B;
+  color: #fb2e01;
   font-size: 1.3em;
   font-weight: 700;
   letter-spacing: 0.5px;
-  
+  font-family: 'Righteous', cursive;
 }
 
 .nav-title:hover{
@@ -61,6 +67,7 @@
 
 .nav-text{
   color: #777777;
+  font-family: 'Roboto', sans-serif;
   letter-spacing: 2px;
   font-weight: 400;
   text-transform: uppercase;
@@ -68,7 +75,11 @@
 }
 
 .Red{
-  color: #ED1D24;
+  color: 	#fb2e01;
+}
+
+.background-btn{
+  background-color: #fb2e01;
 }
 
 .cardw{
@@ -134,6 +145,7 @@ a.a:hover{
 .Footer{
   margin-top: 5em;
   display: flex;
+  font-family: 'Roboto', sans-serif;
   min-height: 3em;
   background-color: #1C2833;
 }
@@ -169,6 +181,7 @@ a.a:hover{
   text-transform: uppercase;
   font-size: 1.3em;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navbar-collapse{
@@ -203,6 +216,10 @@ a.a:hover{
   background-size: cover;
 }
 
+.full-width{
+  min-width: 100vw;
+}
+
 @media (min-width: 768px) { 
   
   .App-title {
@@ -214,7 +231,7 @@ a.a:hover{
   .search-title {
     padding: 0px;
     color: white;
-    font-size: 3em;
+    font-size: 3.5em;
   }
   
   .small-title {
@@ -269,11 +286,13 @@ a.a:hover{
     position: fixed;
     top: inherit;
     opacity: 0.8;
+    align-self: flex-end;
   }
 
   .search-bar{
     margin-top: 1em;
     margin-bottom: 1em;
+    background-color: #1C2833
   }
 
   .search-btn{

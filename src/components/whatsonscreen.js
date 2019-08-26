@@ -69,14 +69,12 @@ class WhatsOn extends React.Component {
 
       else{
         return(
-        <div className="container-fluid">
-          <header>
-            <div className="whatson-header"/>
-            <p className="App-title Red">What's On</p>
-          </header>
-
+        <div>
+          <div className="whatson-header"/>
+          <div className="container-fluid">
+              <p className="search-title display-4">What's On</p>
+          </div>
         </div>
-
         );
       }
    

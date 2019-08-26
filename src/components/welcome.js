@@ -16,21 +16,19 @@ class Welcome extends React.Component {
         
       );
     }
-  }
+}
 
   const normal = (() =>(
     <div className="d-flex flex-column align-items-center welcome">
-      <h1 className="App-title">Movie Database</h1>
-      <p className="small-title">Browse through the highest rated movies and Search for desired movies</p>
-      <a className="btn btn-danger center" href="/Movies/#/home/rating" role="button" >Browse Movies</a>
+      <h1 className="App-title">TheMovies</h1>
+      <p className="small-title">Browse through the highest rated movies and Search for movies</p>
+      <a className="btn btn-danger center background-btn" href="/Movies/#/home/rating" role="button" >Browse Movies</a>
     
   </div>
   ))
 
   const main = (() =>(
-    <div>
-        <Main></Main>
-    </div>
+      <Main></Main>
   ))
 
   export default Welcome;

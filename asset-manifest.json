@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Movies/static/css/main.6fbfeadd.chunk.css",
-    "main.js": "/Movies/static/js/main.545a2e7d.chunk.js",
-    "main.js.map": "/Movies/static/js/main.545a2e7d.chunk.js.map",
+    "main.css": "/Movies/static/css/main.cb3e7055.chunk.css",
+    "main.js": "/Movies/static/js/main.8acec5c7.chunk.js",
+    "main.js.map": "/Movies/static/js/main.8acec5c7.chunk.js.map",
     "runtime~main.js": "/Movies/static/js/runtime~main.a0dd656c.js",
     "runtime~main.js.map": "/Movies/static/js/runtime~main.a0dd656c.js.map",
     "static/js/2.e0259665.chunk.js": "/Movies/static/js/2.e0259665.chunk.js",
     "static/js/2.e0259665.chunk.js.map": "/Movies/static/js/2.e0259665.chunk.js.map",
     "index.html": "/Movies/index.html",
-    "precache-manifest.e7afb192e12d6cf6f65fe78a3f88e98b.js": "/Movies/precache-manifest.e7afb192e12d6cf6f65fe78a3f88e98b.js",
+    "precache-manifest.e5bdd1040aea5fca730c9c84182abcfa.js": "/Movies/precache-manifest.e5bdd1040aea5fca730c9c84182abcfa.js",
     "service-worker.js": "/Movies/service-worker.js",
-    "static/css/main.6fbfeadd.chunk.css.map": "/Movies/static/css/main.6fbfeadd.chunk.css.map",
+    "static/css/main.cb3e7055.chunk.css.map": "/Movies/static/css/main.cb3e7055.chunk.css.map",
     "static/media/App.css": "/Movies/static/media/wp1945898-movie-posters-wallpapers.e267b294.jpg",
     "static/media/logo.5d5d9eef.svg": "/Movies/static/media/logo.5d5d9eef.svg"
   }

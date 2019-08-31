@@ -7,13 +7,10 @@ class MovieOverlay extends React.Component {
     render() {
     
       return (
-        <div className="modal-dialog modal-dialog-centered" role="document">
+        <div className="modal-dialog modal-dialog-centered model-width" role="document">
             <div className="modal-content cardb">
-                <div className="modal-header">
+                <div className="modal-header modal-img">
                     <h5 className="modal-title upper" id="exampleModalCenterTitle">{this.props.title}</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div className="modal-body">
                     <p className="card-text">{this.props.plot}</p>

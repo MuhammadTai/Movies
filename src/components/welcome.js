@@ -7,7 +7,6 @@ class Welcome extends React.Component {
 
     
     render() {
-    
       return (
         <Router>
             <Route exact={true} path ="/" component={normal}/>
@@ -22,7 +21,7 @@ class Welcome extends React.Component {
     <div className="d-flex flex-column align-items-center welcome">
       <h1 className="App-title">TheMovies</h1>
       <p className="small-title">Browse through the highest rated movies and Search for movies</p>
-      <a className="btn btn-danger center background-btn" href="/Movies/#/home/rating" role="button" >Browse Movies</a>
+      <a className="btn btn-danger center background-btn" href="/Movies/?#/home/rating" role="button" >Browse Movies</a>
     
   </div>
   ))

@@ -41,16 +41,41 @@ class Main extends React.Component {
     }
     
     render() {
+      var whatson_color = {
+        color: `#777777`
+      }, 
+      upcoming_color={
+        color: `#777777`
+      }, 
+      rated_color={
+        color: `#777777`
+      }
+
+      if (window.location.href.endsWith("/whatson")){
+        whatson_color={
+          color: `#ffffff`
+        }
+      }
+      if (window.location.href.endsWith("/upcoming")){
+        upcoming_color={
+          color: `#ffffff`
+        }
+      }
+      if (window.location.href.endsWith("/rating")){
+        rated_color={
+          color: `#ffffff`
+        }
+      }
       return (
         <Router>
               <nav className="navbar sticky-top nav-bg navbar-normal">
                   <a className="navbar-brand nav-title" href="/Movies/#/">
                       TheMovies <img src ={Logo} style={{verticalAlign: "bottom", width: "30px"}} alt=""></img></a>
-                  <a className="navbar-brand nav-text b"  href="/Movies/?#/home/whatson">
+                  <a className="navbar-brand nav-text b" style={whatson_color}  href="/Movies/?#/home/whatson">
                       What's On </a>
-                  <a className="navbar-brand nav-text b" href="/Movies/?#/home/upcoming">
+                  <a className="navbar-brand nav-text b" style={upcoming_color} href="/Movies/?#/home/upcoming">
                       Upcoming Movies </a>
-                  <a className="navbar-brand nav-text b" href="/Movies/?#/home/rating">
+                  <a className="navbar-brand nav-text b" style={rated_color} href="/Movies/?#/home/rating">
                       Highest Rated Movies </a>
                   <form className="form-inline search-bar" onSubmit={this.handleSubmit}>
                       <input className="form-control mr-sm-2 nav-bg" type="search" placeholder="Search" aria-label="Search"
@@ -62,11 +87,11 @@ class Main extends React.Component {
               <nav className="navbar navbar-small sticky-top nav-bg collapse" id="navbarToggleExternalContent">
                   <a className="navbar-brand nav-title" href="/Movies/#/">
                       TheMovies <img src ={Logo} style={{verticalAlign: "bottom", width: "30px"}} alt=""></img></a>
-                  <a className="navbar-brand nav-text b" href="/Movies/?#/home/whatson" onClick={this.clearSearch}>
+                  <a className="navbar-brand nav-text b" style={whatson_color} href="/Movies/?#/home/whatson">
                       What's On </a>
-                  <a className="navbar-brand nav-text b" href="/Movies/?#/home/upcoming" onClick={this.clearSearch}>
+                  <a className="navbar-brand nav-text b" style={upcoming_color} href="/Movies/?#/home/upcoming" >
                       Upcoming Movies </a>
-                  <a className="navbar-brand nav-text b" href="/Movies/?#/home/rating" onClick={this.clearSearch}>
+                  <a className="navbar-brand nav-text b" style={rated_color} href="/Movies/?#/home/rating" >
                       Highest Rated Movies </a>
                   <form className="form-inline search-bar" onSubmit={this.handleSubmit}>
                       <input className="form-control mr-sm-2 nav-bg" type="search" placeholder="Search" aria-label="Search"

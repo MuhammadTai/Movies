@@ -1,15 +1,12 @@
 import React from 'react';
 import '../App.css';
-import star from '../images/star.png'
 import MovieOverlay from './movieoverlay'
 
-class RatingScreen extends React.Component {
+class UpcomingScreen extends React.Component {
     constructor(props) {
       super(props);
       
       this.moviedetail = this.moviedetail.bind(this);
-      //this.openSavedPage = this.openSavedPage.bind(this);
-      //this.closeSavedPage = this.closeSavedPage.bind(this);
       this.state = {movies: [], searchMovies:[], poster: "", title: "", plot:"", genre:[], director:"", actor:"",
                     released: "", language: "",  imdbID: "", genres: [], popularity: ""};
       this.movies = [];
@@ -17,19 +14,6 @@ class RatingScreen extends React.Component {
       this.key = process.env.REACT_APP_API_KEY;
     }
  
-    /*
-    openSavedPage(e){
-        e.preventDefault();
-        console.log("Saved")
-        this.setState({savedPage: true})
-    }
-
-    closeSavedPage(e){
-        e.preventDefault();
-        console.log("Closed")
-        this.setState({savedPage: false})
-    }
-    */
     moviedetail(poster, title, plot, genre, released, language, imdbID, popularity){
 
         for (let i = 0; i < genre.length; i++){
@@ -38,40 +22,30 @@ class RatingScreen extends React.Component {
                     genre[i] = this.state.genres[x].name
                 }
             }
-            //genre[i] = this.state.genres.filter((g) => g.id === genre[i]);
+            
         }
+        
 
         this.setState({poster: poster, title: title, plot: plot, genre: genre,
                         released: released, language: language, imdbID: imdbID, popularity: popularity})
     }
     
-    /*
-    shouldComponentUpdate(nextProps, nextState) {
-        return (this.props.search === this.props.update) ;
-    }
-    */
 
     async componentDidMount(){
         
-        //if (!(searched !== '' && regexConst.test(searched) === false) && this.props.search === this.props.update){
+        
         try {
             console.log("api called")
-            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.key}&language=en-US&page=1`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}&language=en-US&page=1`);
             const responseJson = await response.json();
             const response_genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.key}&language=en-US`);
             const responseJson_genre = await response_genre.json();
-            //responseJson.sort(function(a, b){return b.imdbRating - a.imdbRating})
             this.setState({movies: responseJson.results, genres: responseJson_genre.genres})       
 
         }
         catch (error) {
             console.error(error);
         }
-    //}
-    //else if(this.props.search === this.props.update){
-        
-    //    this.fetchData()
-    //}
     }
 
 
@@ -84,9 +58,6 @@ class RatingScreen extends React.Component {
                 <div className="card-body cardb">
                     <h4 className="card-title">{movie.title}</h4>
                 </div>
-                <div className="card-footer text-muted cardb">
-                    <span className="rating"><img src={star} className="star" height="20px" width="20px" alt="Rating"></img> {movie.vote_average}</span>
-                </div>
             </div></a>
         </li>
         );
@@ -95,11 +66,11 @@ class RatingScreen extends React.Component {
             //console.log("Default Movies" + this.state.genre)
             return (
             <div>
-                <div className="rating-header"/>
+                <div className="upcoming-header"/>
                     <div className="container-fluid">
                         <div>
                             <div className="row">
-                                <p className="search-title col-md display-4">Highest Rated Movies</p>
+                                <p className="search-title col-md display-4">Upcoming Movies</p>
                             </div>
                         </div>
 
@@ -120,4 +91,4 @@ class RatingScreen extends React.Component {
     }
   }
 
-  export default RatingScreen;
+  export default UpcomingScreen;

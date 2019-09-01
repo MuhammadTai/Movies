@@ -20,8 +20,8 @@ class Welcome extends React.Component {
   const normal = (() =>(
     <div className="d-flex flex-column align-items-center welcome">
       <h1 className="App-title">TheMovies</h1>
-      <p className="small-title">Browse through the highest rated movies and Search for movies</p>
-      <a className="btn btn-danger center background-btn" href="/Movies/?#/home/rating" role="button" >Browse Movies</a>
+      <p className="small-title">Browse through the latest and highest rated movies, or Search for a movie. </p>
+      <a className="btn btn-danger center background-btn" href="/Movies/?#/home/whatson" role="button" >Browse Movies</a>
     
   </div>
   ))

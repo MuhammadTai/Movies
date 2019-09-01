@@ -158,6 +158,8 @@ a.a:hover{
 .footer-text{
   align-self: center;
   margin-left: 1em;
+  color:grey;
+  font-weight: 200;
 }
 
 .star{
@@ -226,21 +228,44 @@ a.a:hover{
 
 .modal-img{
   height: 40vh;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./images/myke-simon-atsUqIm3wxo-unsplash.jpg");
   background-position: top;
-  background-size: cover;
+  background-size: cover !important;
+  border: black;
 }
-
+.modal-footer{
+  border: black;
+}
 .modal-body{
   line-height: 1.3em;
+  padding-top: 2em !important;
 }
 
 .card-text{
-  line-height: 1.5em;
+  line-height: 1.8em;
+  font-weight: 300;
 }
 .card-footer{
   padding-top: 0em;
 }
+
+.upcoming-header{
+  height: 30em;
+  background: url("./images/charles-I6mx55jXOvM-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.no-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 341.99px;
+  background: black;
+  text-align: center;
+  color: white;
+  
+}
+
 @media (min-width: 768px) { 
   
   .App-title {

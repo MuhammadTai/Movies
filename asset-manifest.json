@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Movies/static/css/main.b84f49f9.chunk.css",
-    "main.js": "/Movies/static/js/main.9b65734a.chunk.js",
-    "main.js.map": "/Movies/static/js/main.9b65734a.chunk.js.map",
+    "main.js": "/Movies/static/js/main.508bc81a.chunk.js",
+    "main.js.map": "/Movies/static/js/main.508bc81a.chunk.js.map",
     "runtime~main.js": "/Movies/static/js/runtime~main.a0dd656c.js",
     "runtime~main.js.map": "/Movies/static/js/runtime~main.a0dd656c.js.map",
     "static/js/2.bfea379c.chunk.js": "/Movies/static/js/2.bfea379c.chunk.js",
     "static/js/2.bfea379c.chunk.js.map": "/Movies/static/js/2.bfea379c.chunk.js.map",
     "index.html": "/Movies/index.html",
-    "precache-manifest.8dce878850c58b98521aa3237857da61.js": "/Movies/precache-manifest.8dce878850c58b98521aa3237857da61.js",
+    "precache-manifest.e3803aa13d5ac17efb804e3fd9fe4b56.js": "/Movies/precache-manifest.e3803aa13d5ac17efb804e3fd9fe4b56.js",
     "service-worker.js": "/Movies/service-worker.js",
     "static/css/main.b84f49f9.chunk.css.map": "/Movies/static/css/main.b84f49f9.chunk.css.map",
     "static/media/App.css": "/Movies/static/media/wp1945898-movie-posters-wallpapers.e267b294.jpg"

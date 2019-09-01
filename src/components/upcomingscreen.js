@@ -30,13 +30,14 @@ class UpcomingScreen extends React.Component {
                         released: released, language: language, imdbID: imdbID, popularity: popularity})
     }
     
+    controller = new AbortController();
 
     async componentDidMount(){
         
         
         try {
             console.log("api called")
-            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}&language=en-US&page=1`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}&language=en-US&page=1`, {signal: this.controller.signal});
             const responseJson = await response.json();
             const response_genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.key}&language=en-US`);
             const responseJson_genre = await response_genre.json();
@@ -46,6 +47,10 @@ class UpcomingScreen extends React.Component {
         catch (error) {
             console.error(error);
         }
+    }
+
+    componentWillUnmount(){
+        this.controller.abort()
     }
 
 

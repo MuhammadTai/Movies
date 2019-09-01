@@ -25,7 +25,8 @@ class Main extends React.Component {
     }
     
     handleSubmit(event){
-      if(this.state.searchEnter === this.state.search){
+  
+      if((this.state.searchEnter === this.state.search)&&(window.location.href.endsWith("/search/"))){
         return;
       }
       //if(event.key === "Enter" && this.state.searchEnter !== event.target.value){

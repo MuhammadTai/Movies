@@ -31,7 +31,7 @@ class SearchScreen extends React.Component {
        
     try {
         console.log("api called")
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&language=en-US&page=1&include_adult=false&query=${this.props.search}`);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&language=en-US&page=1&include_adult=false&query=${this.props.search}`, {signal: this.controller.signal});
         const responseJson = await response.json();
         console.log(responseJson.results)
         if (responseJson.results.length >  0){
@@ -54,6 +54,8 @@ class SearchScreen extends React.Component {
          
   }
   */
+ controller = new AbortController();
+
    async componentDidMount(){
     
     const searched = this.props.search
@@ -64,7 +66,11 @@ class SearchScreen extends React.Component {
       
     }
    }
-    
+
+   componentWillUnmount(){
+    this.controller.abort()
+    }
+
     render() {
       const searched = this.props.update;
       if(this.state.searchMovies.length > 0){

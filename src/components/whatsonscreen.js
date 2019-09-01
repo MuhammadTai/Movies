@@ -26,11 +26,13 @@ class WhatsOn extends React.Component {
       this.setState({poster: poster, title: title, plot: plot, genre: genre,
         released: released, language: language, imdbID: imdbID, popularity: popularity})
     }
+
+  controller = new AbortController();
  
    async componentDidMount(){
     try {
       console.log("api called")
-      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.key}&language=en-US&page=1`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.key}&language=en-US&page=1`, {signal: this.controller.signal});
       const responseJson = await response.json();
       const response_genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.key}&language=en-US`);
       const responseJson_genre = await response_genre.json();
@@ -42,7 +44,11 @@ class WhatsOn extends React.Component {
         console.error(error);
     }
    }
-    
+
+  componentWillUnmount(){
+    this.controller.abort()
+  }
+
     render() {
       const listMovies = this.state.movies.map((movie) =>
       <li className="list-inline-item .justify-content-*-center padding" key={movie.id}>

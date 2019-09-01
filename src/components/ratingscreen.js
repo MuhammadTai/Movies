@@ -50,18 +50,19 @@ class RatingScreen extends React.Component {
         return (this.props.search === this.props.update) ;
     }
     */
+   controller = new AbortController();
 
     async componentDidMount(){
         
         //if (!(searched !== '' && regexConst.test(searched) === false) && this.props.search === this.props.update){
         try {
             console.log("api called")
-            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.key}&language=en-US&page=1`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.key}&language=en-US&page=1`, {signal: this.controller.signal});
             const responseJson = await response.json();
             const response_genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.key}&language=en-US`);
             const responseJson_genre = await response_genre.json();
             //responseJson.sort(function(a, b){return b.imdbRating - a.imdbRating})
-            this.setState({movies: responseJson.results, genres: responseJson_genre.genres})       
+            this.setState({movies: responseJson.results, genres: responseJson_genre.genres, })       
 
         }
         catch (error) {
@@ -72,6 +73,10 @@ class RatingScreen extends React.Component {
         
     //    this.fetchData()
     //}
+    }
+
+    componentWillUnmount(){
+        this.controller.abort()
     }
 
 

@@ -176,6 +176,10 @@ a.a:hover{
   color: lightslategray;
 }
 
+.lightgrey{
+  color: lightgray;
+}
+
 .upper{
   text-transform: uppercase;
 }
@@ -197,15 +201,15 @@ a.a:hover{
 }
 
 .rating-header{
-  height: 30em;
+  height: 15em;
   background: url("./images/myke-simon-atsUqIm3wxo-unsplash.jpg");
   background-position: top;
   background-size: cover;
 }
 
 .whatson-header{
-  width: 100%;
-  height: 30em;
+  
+  height: 15em;
   background: url("./images/erik-witsoe-GF8VvBgcJ4o-unsplash.jpg");
   background-position: center;
   background-size: cover;
@@ -250,7 +254,7 @@ a.a:hover{
 }
 
 .upcoming-header{
-  height: 30em;
+  height: 15em;
   background: url("./images/charles-I6mx55jXOvM-unsplash.jpg");
   background-position: center;
   background-size: cover;
@@ -265,6 +269,43 @@ a.a:hover{
   text-align: center;
   color: white;
   
+}
+
+.Movie-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1050;
+  outline: 0;
+  overflow: auto;
+}
+
+.Hidden{
+  display: none;
+}
+
+.Overflow-hidden{
+  overflow: hidden;
+}
+
+.Overflow-visible{
+  overflow: visible;
+}
+
+.color{
+  outline-color: #fb2e01 !important;
+}
+
+.Tagline{
+  font-style: italic;
+  font-size: 1em;
+  color: bisque;
+}
+
+.Cast{
+  padding-left: 1em;
 }
 
 @media (min-width: 768px) { 
@@ -312,15 +353,32 @@ a.a:hover{
   }
 
   .cardw:hover{
-    transform: scale(1.09)
+    transform: scale(1.09);
+    
   }
 
   .model-width{
     max-width: 800px;
   }
+
+  .whatson-header{
+   
+    height: 70vh;
+  }
+
+  .rating-header{
+    height: 70vh;
+
+  }
+
+  .upcoming-header{
+    height: 70vh;
+
+  }
+
 }
 
- @media (max-width: 1000px){
+ @media (max-width: 1026px){
   .navbar-normal{
     display: none
   }
@@ -347,4 +405,18 @@ a.a:hover{
     display: none;
   }
 
+  .whatson-header{
+   
+    height: 15em;
+  }
+
+  .rating-header{
+    height: 15em;
+
+  }
+
+  .upcoming-header{
+    height: 15em;
+
+  }
 }

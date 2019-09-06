@@ -1,13 +1,17 @@
 import React from 'react';
-import {render, fireEvent, cleanup} from '@testing-library/react';
+import {render, fireEvent, cleanup, getByText, getByRole} from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+import Welcome from './components/welcome';
 import App from './App';
-import Home from './homescreen';
-import Mcu from './mcuscreen';
+import Main from './components/mainscreen';
+import {HashRouter as Router, Route} from 'react-router-dom';
+
+import { exportAllDeclaration } from '@babel/types';
+import { async } from 'q';
+
 
 // automatically unmount and cleanup DOM after the test is finished.
-//afterEach(cleanup);
+afterEach(cleanup);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -15,31 +19,37 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('search is updated when input is changed', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('loads the first screen with correct button', () => {
+  const {getByRole} = render(
+    <Welcome></Welcome>
+  )
+  const welcome_button = getByRole('button')
+  //console.log(getByRole('button').href)
+  //console.log(welcome_button.href)
+  expect(welcome_button.href).toContain("/Movies/?#/home/whatson")
 });
 
+describe('Testing the NavBar', () => {
+  it('Nav text changes color when clicked or hovered',  async() => {
+    const {getAllByText} = render(
+      <Router>
+        <Main></Main>
+      </Router>
+    )
+    const whatson_button = getAllByText(/What's On/)
+    const upcoming_button = getAllByText(/Upcoming Movies/)
+    //console.log(getByRole('button').href)
+    console.log(whatson_button[0].style.color)
+    console.log(upcoming_button[0].style.color)
+    expect(whatson_button[0].style.color).toBe("rgb(119, 119, 119)")
+    fireEvent.click(upcoming_button[0])
+    
+    console.log(whatson_button[0].style)
+    console.log(upcoming_button[0].style)
+    console.log(upcoming_button[0].pendingProps)
+    
+    console.log(upcoming_button[0].memoizedProps)
+  });
 
-/*
-it('search is updated when input is changed', () => {
-  const component = renderer.create(
-    <Header></Header>,
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
 
-  // manually trigger the callback
-  tree.Router.div.props.onVal();
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-
-  // manually trigger the callback
-  tree.props.onMouseLeave();
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-*/
+})

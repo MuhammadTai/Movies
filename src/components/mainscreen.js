@@ -18,9 +18,10 @@ class Main extends React.Component {
       this.clearSearch = this.clearSearch.bind(this);
       this.state = {search: '', searchEnter:''};
     }
+    
   
     handleChange(event) {
-      console.log("onchange")
+      //console.log("onchange")
       this.setState({search: event.target.value});
     }
     
@@ -31,7 +32,7 @@ class Main extends React.Component {
       }
       //if(event.key === "Enter" && this.state.searchEnter !== event.target.value){
         this.setState({searchEnter:  this.state.search});
-        console.log("onsub")
+        //console.log("onsub")
         this.props.history.push("/home/search/")
       //}
     }
@@ -41,6 +42,7 @@ class Main extends React.Component {
     }
     
     render() {
+      
       var whatson_color = {
         color: `#777777`
       }, 
@@ -101,7 +103,7 @@ class Main extends React.Component {
               </nav>
 
               <nav className="navbar sticky-top nav-bg navbar-dark navbar-collapse">
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler color" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
               </nav>

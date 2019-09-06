@@ -30,7 +30,7 @@ class UpcomingScreen extends React.Component {
             }
             
         }
-        fetch(`http://api.themoviedb.org/3/movie/${imdbID}?api_key=${this.key}&language=en-US&page=1&append_to_response=credits`)
+        fetch(`https://api.themoviedb.org/3/movie/${imdbID}?api_key=${this.key}&language=en-US&page=1&append_to_response=credits`)
         .then((response)=>response.json())
         .then((result)=> this.setState({poster: poster, title: title, plot: plot, genre: genre,
                     released: released, language: language, imdbID: imdbID, popularity: popularity, show: true,

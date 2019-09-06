@@ -85,25 +85,36 @@ class MovieModal extends React.Component {
       return (
         <div className="modal-dialog modal-dialog-centered model-width" role="document" ref={(e) => this.node = e}>
             <div className="modal-content cardb">
-                <div className="modal-header modal-img flex-column"  style={modalPoster}>
-                    <h5 className="modal-title upper" id="exampleModalCenterTitle">{this.props.title}</h5>
-                    <p className="modal-title Tagline">{this.props.tagline}</p>
+                {!this.props.modalloaded ? (
+                <div className="d-flex flex-column justify-content-center" style={{height: '80vh', alignItems: 'center'}}>
+                    <div className="spinner-border primary-color" role="status" style={{width: '3rem', height: '3rem'}}>
+                        <span className="sr-only">Loading...</span>
+                    </div>
                 </div>
-                <div className="modal-body">
-                    <p className="card-text">{this.props.plot}</p>
-                    <p className="text-size-footer">Released: <span className="grey upper">{this.props.released}</span></p>
-                    <p className="text-size-footer">Language: <span className="grey upper">{this.props.language}</span></p>
-                    <p className="text-size-footer">Genre: <span className="grey">{genre}</span></p>
-                    <p className="text-size-footer">Popularity: <span className="grey">{this.props.popularity}</span></p>
-                    <p className="text-size-footer float-left">Cast: </p>
-                    <ul className="d-flex list-inline flex-wrap Cast">
-                        {castList}
-                    </ul>
+                ) :  
+                (
+                <div>
+                    <div className="modal-header modal-img flex-column"  style={modalPoster}>
+                        <h5 className="modal-title upper" id="exampleModalCenterTitle">{this.props.title}</h5>
+                        <p className="modal-title Tagline">{this.props.tagline}</p>
+                    </div>
+                    <div className="modal-body">
+                        <p className="card-text">{this.props.plot}</p>
+                        <p className="text-size-footer">Released: <span className="grey upper">{this.props.released}</span></p>
+                        <p className="text-size-footer">Language: <span className="grey upper">{this.props.language}</span></p>
+                        <p className="text-size-footer">Genre: <span className="grey">{genre}</span></p>
+                        <p className="text-size-footer">Popularity: <span className="grey">{this.props.popularity}</span></p>
+                        <p className="text-size-footer float-left">Cast: </p>
+                        <ul className="d-flex list-inline flex-wrap Cast">
+                            {castList}
+                        </ul>
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" onClick={this.props.close}>Close</button>
+                        <button type="button" className="btn btn-danger background-btn">Favourite Movie</button>
+                    </div>
                 </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" onClick={this.props.close}>Close</button>
-                    <button type="button" className="btn btn-danger background-btn">Favourite Movie</button>
-                </div>
+                )}
             </div>
         </div>
         

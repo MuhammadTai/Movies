@@ -9,7 +9,7 @@ class WhatsOn extends React.Component {
       this.moviedetail = this.moviedetail.bind(this);
       this.state = {searchMovies:[],  movies:[], poster: "", title: "", plot:"", genre:[], director:"", actor:"",
                     released: "", runtime: "",  imdbID: "", genres: [], popularity:"", show: false, loaded: false,
-                    tagline: "", cast: []};
+                    tagline: "", cast: [], modalloaded: false};
       this.key = process.env.REACT_APP_API_KEY;
     } 
 
@@ -19,6 +19,7 @@ class WhatsOn extends React.Component {
 
     moviedetail(e, poster, title, plot, genre, released, language, imdbID, popularity){
       e.preventDefault();
+      this.setState({show: true, modalloaded: false})
       for (let i = 0; i < genre.length; i++){
         for (let x= 0; x < this.state.genres.length; x++){
             if(this.state.genres[x].id === genre[i]){
@@ -30,8 +31,8 @@ class WhatsOn extends React.Component {
       fetch(`https://api.themoviedb.org/3/movie/${imdbID}?api_key=${this.key}&language=en-US&page=1&append_to_response=credits`)
       .then((response)=>response.json())
       .then((result)=> this.setState({poster: poster, title: title, plot: plot, genre: genre,
-                  released: released, language: language, imdbID: imdbID, popularity: popularity, show: true,
-                  tagline: result.tagline, cast: result.credits.cast}))
+                  released: released, language: language, imdbID: imdbID, popularity: popularity,
+                  tagline: result.tagline, cast: result.credits.cast, modalloaded: true}))
     }
 
   controller = new AbortController();
@@ -79,13 +80,14 @@ class WhatsOn extends React.Component {
           ) : 
           (
           <div>
-            <div className="whatson-header"/>
+            <div className="whatson-header" />
             <div className="container-fluid">
                 <p className="search-title display-4">What's On</p>
             </div>
             <div className={this.state.show? "Movie-modal overlay-backgorund": "Hidden"}>
                 <MovieModal poster={this.state.poster} title={this.state.title} plot={this.state.plot} released={this.state.released} language={this.state.language}
-                  genre={this.state.genre} popularity={this.state.popularity} tagline={this.state.tagline} cast={this.state.cast} close={() => this.close()} show={this.state.show}/>
+                  genre={this.state.genre} popularity={this.state.popularity} tagline={this.state.tagline} cast={this.state.cast} close={() => this.close()} 
+                  show={this.state.show} modalloaded={this.state.modalloaded}/>
             </div>
             <ul className="list-inline flex container">
                 {listMovies}
